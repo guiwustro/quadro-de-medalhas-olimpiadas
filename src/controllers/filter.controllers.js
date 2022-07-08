@@ -1,11 +1,10 @@
 import { createDOM } from "./createDom.controllers.js";
-import { Api } from "./api.controllers.js"
+import { Api } from "./api.controllers.js";
 
 class Filter {
-    static data = this.calculateRank()
-    static async calculateRank() {
+	static data = "";
+	static async calculateRank() {
 		let data = await Api.request();
-
 		data.forEach(
 			(country) =>
 				(country.total =
@@ -22,26 +21,42 @@ class Filter {
 			}
 		});
 		data.forEach((country, index) => (country.ranking = index + 1));
-
-	return data;
+		Filter.data = data;
+		return data;
 	}
 
-    static async filterByCountry(){
-        const countrySearched = document.getElementsByName('search')[0].value.toLowerCase()
-        const dataFiltered =  (await this.data).filter(({country})=> country.toLowerCase().includes(countrySearched))
-        createDOM.createTableBody(dataFiltered)
-    }
+	static async filterByCountry() {
+		let data = await Filter.calculateRank();
+		const countrySearched = document
+			.getElementsByName("search")[0]
+			.value.toLowerCase();
+		const dataFiltered = data.filter(({ country }) =>
+			country.toLowerCase().includes(countrySearched)
+		);
+		Filter.data = dataFiltered;
+		createDOM.createTableBody(dataFiltered);
+	}
 
-    static async orderList(typeOrdered){
+	static orderList(typeOrdered) {
+		let data = Filter.data;
+		const arrowImg = document.querySelector(`.img__${typeOrdered}`);
+		//! Testei meu regex aquii https://regexr.com/
+		const actualArrow = arrowImg.src.match(/(src).+/g)[0];
 
-    }
+		const arrowUp = "src/assets/imgs/arrow_up.png";
+		const arrowDown = "src/assets/imgs/arrow_down.png";
+
+		if (actualArrow === arrowDown) {
+			data.sort((a, b) => b[typeOrdered] - a[typeOrdered]);
+			createDOM.createTableBody(data);
+			arrowImg.src = arrowUp;
+		} else {
+			data.sort((a, b) => a[typeOrdered] - b[typeOrdered]);
+			createDOM.createTableBody(data);
+			arrowImg.src = arrowDown;
+		}
+		Filter.data = data;
+	}
 }
 
-const form = document.querySelector('.search__form')
-form.addEventListener('submit', (event)=>{
-    event.preventDefault();
-    Filter.filterByCountry()
-})
-
-const positionBtn = document.getElementById('position__order')
-export { Filter } 
+export { Filter };

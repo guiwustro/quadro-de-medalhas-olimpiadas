@@ -22,8 +22,19 @@
 	justify-content: center;
 }
 
-.container {
+.container::before {
+	content: "";
 	background-color: var(--color-grey-300);
+	position: absolute;
+	top: 77px;
+	left: 0;
+	width: 100%;
+	height: 247px;
+	z-index: -1;
+}
+.container {
+	margin: 0 auto;
+	max-width: 1440px;
 }
 .container__search {
 	margin-bottom: 21px;
@@ -128,6 +139,9 @@
 }
 .table__cell {
 }
+.table__order {
+	cursor: pointer;
+}
 .table__country-span {
 	padding-left: 20px;
 }
@@ -145,8 +159,7 @@
 	background-color: var(--color-blue-500);
 }
 .medal-table {
-	position: relative;
-	width: 100%;
+	background-color: var(--color-grey-300);
 }
 
 td,
@@ -160,7 +173,7 @@ th {
 }
 
 #text__country {
-	min-width: 477px;
+	min-width: 457px;
 }
 
 #text__gold {
