@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="src/css/reset.css" />
+		<link rel="stylesheet" href="src/css/style.css" />
+	</head>
+	<body>
+		<header class="header">
+			<figure class="header__figure">
+				<img src="src/assets/imgs/logo.png" alt="Logo" />
+			</figure>
+		</header>
+
+		<main class="container">
+			<section class="container__search">
+				<form class="search__form">
+					<label for="search" class="search__label">Pesquisa</label>
+					<input
+						type="text"
+						id="search"
+						name="search"
+						class="search__input"
+						placeholder="Pesquisar por país"
+					/>
+					<span class="search__example">Ex: Brasil</span>
+					<button class="search__button">Pesquisar</button>
+				</form>
+			</section>
+
+			<section class="container__table">
+				<table class="medal-table">
+					<thead class="table__header">
+						<tr>
+							<th class="table__header-cell" id="text__position">
+								<div class="table__header-text">
+									Posição
+									<img
+										class="position__img"
+										src="src/assets/imgs/arrow_down.png"
+										alt="alterar ordem"
+									/>
+								</div>
+							</th>
+							<th class="table__header-cell" id="text__country">
+								<div class="table__header-text">País</div>
+							</th>
+							<th id="text__gold" class="table__header-cell">
+								<div class="table__header-text">
+									Ouro
+									<img
+										class="gold__img"
+										src="src/assets/imgs/arrow_down.png"
+										alt="alterar ordem"
+									/>
+								</div>
+							</th>
+							<th id="text__silver" class="table__header-cell">
+								<div class="table__header-text">
+									Prata
+									<img
+										class="silver__img"
+										src="src/assets/imgs/arrow_down.png"
+										alt="alterar ordem"
+									/>
+								</div>
+							</th>
+							<th id="text__bronze" class="table__header-cell">
+								<div class="table__header-text">
+									Bronze
+									<img
+										class="bronze__img"
+										src="src/assets/imgs/arrow_down.png"
+										alt="alterar ordem"
+									/>
+								</div>
+							</th>
+							<th id="text__total" class="table__header-cell">
+								<div class="table__header-text">
+									Total
+									<img
+										class="total__img"
+										src="src/assets/imgs/arrow_down.png"
+										alt="alterar ordem"
+									/>
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody class="table__body">
+						<!-- Elementos inseridos pelo DOM -->
+					</tbody>
+				</table>
+			</section>
+		</main>
+		<script type="module" src="src/js/script.js"></script>
+	</body>
+</html>

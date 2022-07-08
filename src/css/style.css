@@ -1,0 +1,211 @@
+:root {
+	--color-blue-700: #364fc7;
+	--color-blue-600: #4058ca;
+	--color-blue-500: #4a60cc;
+	--color-blue-200: #939edf;
+	--color-grey-700: #212529;
+	--color-grey-500: #868e96;
+	--color-grey-300: #e9ecef;
+	--color-grey-100: #f8f9fa;
+	--color-white: #ffffff;
+}
+
+.header {
+	width: 100vw;
+	height: 80px;
+}
+
+.header__figure {
+	background-color: var(--color-blue-700);
+	width: inherit;
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	background-color: var(--color-grey-300);
+}
+.container__search {
+	margin-bottom: 21px;
+}
+.search__form {
+	display: flex;
+	padding-top: 2rem;
+	margin: 0 15px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.search__label {
+	font-size: 0.75rem;
+}
+
+.search__input {
+	width: 100%;
+	background: url(./../assets/imgs/magnifying-glass-solid.svg) no-repeat scroll
+		10px;
+	padding-left: 40px;
+	background-size: 20px;
+	height: 40px;
+	background-color: var(--color-grey-100);
+	border: 2px solid var(--color-grey-100);
+	border-radius: 8px;
+	border: 1px solid transparent;
+}
+.search__input::placeholder {
+	font-size: 0.8rem;
+	color: var(--color-grey-500);
+}
+.search__input:focus {
+	outline: none;
+	border: 1px solid var(--color-grey-700);
+	box-shadow: 0 0 10px #719ece;
+}
+.search__input:focus::-webkit-input-placeholder {
+	color: var(--color-grey-700);
+}
+
+.search__example {
+	font-size: 0.675rem;
+	color: var(--color-grey-500);
+}
+
+.search__button:hover {
+	background-color: var(--color-blue-200);
+	cursor: pointer;
+	border: none;
+}
+
+@media (min-width: 768px) {
+	.search__form {
+		display: grid;
+		grid-template-areas: "label label" "input button" "example nothing";
+		grid-template-columns: 301px;
+	}
+	.search__label {
+		grid-area: label;
+	}
+	.search__input {
+		grid-area: input;
+		max-width: 301px;
+	}
+	.search__button {
+		grid-area: button;
+		max-width: 100px;
+	}
+	.search__example {
+		grid-area: example;
+	}
+}
+
+.search__button {
+	background-color: var(--color-blue-700);
+	border: 1.4px solid var(--color-blue-700);
+	border-radius: 8px;
+	width: 100%;
+	height: 40px;
+	font-size: 1rem;
+	text-align: center;
+	color: var(--color-white);
+}
+
+.container__table {
+	margin: 0 15px;
+	overflow: auto;
+}
+.table__body {
+	color: var(--color-grey-500);
+	font-weight: 500;
+}
+.table__country {
+	display: flex;
+	align-items: center;
+}
+.table__flag-image {
+	height: 20px;
+	width: 28px;
+}
+.table__cell {
+}
+.table__country-span {
+	padding-left: 20px;
+}
+.table__header-cell {
+	padding-top: 30px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	height: 70px;
+	background-color: var(--color-blue-700);
+}
+.table__header-text {
+	padding: 20px;
+	color: var(--color-white);
+	background-color: var(--color-blue-500);
+}
+.medal-table {
+	position: relative;
+	width: 100%;
+}
+
+td,
+th {
+	border: 1px dotted;
+	text-align: center;
+}
+
+#text__position {
+	min-width: 212px;
+}
+
+#text__country {
+	min-width: 477px;
+}
+
+#text__gold {
+	min-width: 188px;
+}
+
+#text__silver {
+	min-width: 191px;
+}
+#text__bronze {
+	min-width: 201px;
+}
+#text__total {
+	min-width: 150px;
+}
+
+th,
+td {
+	padding: 20px;
+}
+
+::-webkit-scrollbar {
+	width: 9px;
+	height: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-grey-500);
+	border: 15px none #ffffff;
+	border-radius: 35px;
+}
+
+::-webkit-scrollbar-thumb:active {
+	background: var(--color-grey-700);
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-grey-300);
+
+	border-radius: 48px;
+}
+
+::-webkit-scrollbar-track:active {
+	background: var(--color-grey-500);
+}
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
