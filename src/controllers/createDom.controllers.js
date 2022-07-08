@@ -1,38 +1,15 @@
 import { Api } from "./api.controllers.js";
 class createDOM {
-	static async createTableBody() {
-		const data = await this.calculateRank();
+	static createTableBody(data){
 		const tbody = document.querySelector(".table__body");
 		tbody.innerText = "";
-
 		data.forEach((country) => {
 			const row = this.createTemplateRow(country);
 			tbody.appendChild(row);
 		});
 	}
 
-	static async calculateRank() {
-		let data = await Api.request();
 
-		data.forEach(
-			(country) =>
-				(country.total =
-					country.medal_bronze + country.medal_gold + country.medal_silver)
-		);
-		data.sort((a, b) => {
-			if (b.total > a.total) {
-				return 1;
-			}
-			if (b.total < a.total) {
-				return -1;
-			} else {
-				return b.medal_gold > a.medal_gold ? 1 : -1;
-			}
-		});
-		data.forEach((country, index) => (country.ranking = index + 1));
-
-		return data;
-	}
 	static createTemplateRow(data) {
 		const row = document.createElement("tr");
 		row.className = "table__row";
