@@ -40,7 +40,6 @@ class Filter {
 	static orderList(typeOrdered) {
 		let data = Filter.data;
 		const arrowImg = document.querySelector(`.img__${typeOrdered}`);
-		//! Testei meu regex aquii https://regexr.com/
 		const actualArrow = arrowImg.src.match(/(src).+/g)[0];
 
 		const arrowUp = "src/assets/imgs/arrow_up.png";
